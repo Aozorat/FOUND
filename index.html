@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>FOUND. — Don't Search. Discover.</title>
+
+  <meta
+    name="description"
+    content="FOUND. — Discover sneakers, streetwear, vintage and culture."
+  >
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- =========================================
+       HEADER
+  ========================================== -->
+
+  <header class="site-header">
+
+    <a href="#" class="logo" data-page="home">
+      FOUND<span>.</span>
+    </a>
+
+    <nav class="desktop-nav">
+      <a href="#" data-page="home">HOME</a>
+      <a href="#" data-page="discover">DISCOVER</a>
+      <a href="#" data-page="categories">CATEGORIES</a>
+      <button id="openSearch">SEARCH</button>
+    </nav>
+
+    <div class="header-actions">
+
+      <button
+        class="icon-button"
+        id="openSaved"
+        aria-label="Saved items"
+      >
+        ♡
+      </button>
+
+      <button
+        class="login-button"
+        id="openLogin"
+      >
+        LOGIN
+      </button>
+
+      <button
+        class="menu-button"
+        id="openMenu"
+        aria-label="Open menu"
+      >
+        ☰
+      </button>
+
+    </div>
+
+  </header>
+
+
+  <!-- =========================================
+       MOBILE MENU
+  ========================================== -->
+
+  <div class="mobile-menu" id="mobileMenu">
+
+    <button class="close-menu" id="closeMenu">
+      ×
+    </button>
+
+    <div class="mobile-menu-inner">
+
+      <span class="menu-label">NAVIGATION</span>
+
+      <a href="#" data-page="home">HOME</a>
+      <a href="#" data-page="discover">DISCOVER</a>
+      <a href="#" data-page="categories">CATEGORIES</a>
+      <a href="#" data-page="saved">SAVED</a>
+
+      <button id="mobileSearch">
+        SEARCH
+      </button>
+
+      <button id="mobileLogin">
+        LOGIN
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================================
+       SEARCH OVERLAY
+  ========================================== -->
+
+  <div class="overlay search-overlay" id="searchOverlay">
+
+    <button class="overlay-close" id="closeSearch">
+      ×
+    </button>
+
+    <div class="search-container">
+
+      <span class="eyebrow">
+        WHAT ARE YOU LOOKING FOR?
+      </span>
+
+      <h2>SEARCH.</h2>
+
+      <form id="searchForm">
+
+        <input
+          type="search"
+          id="searchInput"
+          placeholder="Search sneakers, Y2K, vintage..."
+          autocomplete="off"
+        >
+
+        <button type="submit">
+          →
+        </button>
+
+      </form>
+
+      <div class="search-suggestions">
+
+        <span>TRY THIS</span>
+
+        <button data-search="black sneakers">
+          BLACK SNEAKERS
+        </button>
+
+        <button data-search="Y2K">
+          Y2K
+        </button>
+
+        <button data-search="vintage">
+          VINTAGE
+        </button>
+
+        <button data-search="streetwear">
+          STREETWEAR
+        </button>
+
+        <button data-search="silver sneakers">
+          SILVER SNEAKERS
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================================
+       LOGIN OVERLAY
+  ========================================== -->
+
+  <div class="overlay login-overlay" id="loginOverlay">
+
+    <button class="overlay-close" id="closeLogin">
+      ×
+    </button>
+
+    <div class="login-container">
+
+      <span class="eyebrow">
+        WELCOME TO FOUND.
+      </span>
+
+      <h2>LOGIN.</h2>
+
+      <form id="loginForm">
+
+        <input
+          type="email"
+          placeholder="EMAIL"
+          required
+        >
+
+        <input
+          type="password"
+          placeholder="PASSWORD"
+          required
+        >
+
+        <button type="submit" class="primary-button">
+          ENTER FOUND.
+        </button>
+
+      </form>
+
+      <p class="login-note">
+        Account features will be connected later.
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================================
+       MAIN APPLICATION
+  ========================================== -->
+
+  <main id="app">
+
+
+    <!-- =======================================
+         HOME
+    ======================================== -->
+
+    <section
+      class="page active"
+      id="homePage"
+      data-page-section="home"
+    >
+
+      <!-- HERO -->
+
+      <section class="hero">
+
+        <div class="hero-noise"></div>
+
+        <div class="hero-content">
+
+          <span class="hero-index">
+            001 / DISCOVERY
+          </span>
+
+          <h1>
+            DON'T
+            <br>
+            SEARCH.
+            <br>
+            <span>DISCOVER.</span>
+          </h1>
+
+          <p>
+            Sneakers, streetwear, vintage and things
+            you didn't know you were looking for.
+          </p>
+
+          <button
+            class="hero-button"
+            data-page="discover"
+          >
+            START DISCOVERING →
+          </button>
+
+        </div>
+
+        <div class="hero-mark">
+          FOUND.
+        </div>
+
+      </section>
+
+
+      <!-- MARQUEE -->
+
+      <div class="marquee">
+
+        <div class="marquee-track">
+
+          <span>DON'T SEARCH.</span>
+          <span>DISCOVER.</span>
+          <span>FOUND.</span>
+          <span>STREET CULTURE.</span>
+
+          <span>DON'T SEARCH.</span>
+          <span>DISCOVER.</span>
+          <span>FOUND.</span>
+          <span>STREET CULTURE.</span>
+
+        </div>
+
+      </div>
+
+
+      <!-- JUST FOUND -->
+
+      <section class="content-section">
+
+        <div class="section-heading">
+
+          <div>
+            <span class="section-number">
+              01
+            </span>
+
+            <h2>JUST FOUND.</h2>
+          </div>
+
+          <button
+            data-page="discover"
+            class="text-button"
+          >
+            VIEW ALL →
+          </button>
+
+        </div>
+
+        <div
+          class="product-grid"
+          id="justFoundGrid"
+        ></div>
+
+      </section>
+
+
+      <!-- STREET EDITORIAL -->
+
+      <section class="editorial-section">
+
+        <div class="editorial-copy">
+
+          <span class="eyebrow">
+            STREET LANGUAGE / 001
+          </span>
+
+          <h2>
+            STREET
+            <br>
+            ISN'T A
+            <br>
+            CATEGORY.
+          </h2>
+
+          <p>
+            It's a language.
+            A mix of sneakers, clothes,
+            music, references and attitude.
+          </p>
+
+          <button
+            class="text-button"
+            data-page="editorial"
+          >
+            READ STORY →
+          </button>
+
+        </div>
+
+        <div class="editorial-image">
+
+          <img
+            src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1400&q=85"
+            alt="Street fashion"
+          >
+
+          <span class="image-note">
+            NYC / 2000s ENERGY
+          </span>
+
+        </div>
+
+      </section>
+
+
+      <!-- TRENDING -->
+
+      <section class="content-section">
+
+        <div class="section-heading">
+
+          <div>
+
+            <span class="section-number">
+              02
+            </span>
+
+            <h2>TRENDING NOW.</h2>
+
+          </div>
+
+          <span class="section-note">
+            PEOPLE ARE LOOKING
+          </span>
+
+        </div>
+
+        <div
+          class="product-grid"
+          id="trendingGrid"
+        ></div>
+
+      </section>
+
+
+      <!-- RANDOM FIND -->
+
+      <section class="random-section">
+
+        <div class="random-inner">
+
+          <span class="eyebrow">
+            DON'T KNOW WHAT YOU WANT?
+          </span>
+
+          <h2>
+            LET US
+            <br>
+            FIND IT.
+          </h2>
+
+          <p>
+            One click.
+            One unexpected find.
+          </p>
+
+          <button
+            id="randomFindButton"
+            class="random-button"
+          >
+            RANDOM FIND ✦
+          </button>
+
+        </div>
+
+      </section>
+
+
+      <!-- UNDER THE RADAR -->
+
+      <section class="content-section">
+
+        <div class="section-heading">
+
+          <div>
+
+            <span class="section-number">
+              03
+            </span>
+
+            <h2>UNDER THE RADAR.</h2>
+
+          </div>
+
+        </div>
+
+        <div
+          class="product-grid"
+          id="radarGrid"
+        ></div>
+
+      </section>
+
+    </section>
+
+
+    <!-- =======================================
+         DISCOVER PAGE
+    ======================================== -->
+
+    <section
+      class="page"
+      id="discoverPage"
+      data-page-section="discover"
+    >
+
+      <div class="page-header">
+
+        <span class="eyebrow">
+          EXPLORE / 002
+        </span>
+
+        <h1>DISCOVER.</h1>
+
+        <p>
+          No algorithm rabbit holes.
+          Just things worth finding.
+        </p>
+
+      </div>
+
+
+      <div class="filter-bar">
+
+        <button
+          class="filter active"
+          data-filter="all"
+        >
+          ALL
+        </button>
+
+        <button
+          class="filter"
+          data-filter="sneakers"
+        >
+          SNEAKERS
+        </button>
+
+        <button
+          class="filter"
+          data-filter="clothing"
+        >
+          CLOTHING
+        </button>
+
+        <button
+          class="filter"
+          data-filter="accessories"
+        >
+          ACCESSORIES
+        </button>
+
+        <button
+          class="filter"
+          data-filter="vintage"
+        >
+          VINTAGE
+        </button>
+
+        <button
+          class="filter"
+          data-filter="y2k"
+        >
+          Y2K
+        </button>
+
+      </div>
+
+
+      <div
+        class="product-grid discover-grid"
+        id="discoverGrid"
+      ></div>
+
+    </section>
+
+
+    <!-- =======================================
+         CATEGORIES DIRECTORY
+    ======================================== -->
+
+    <section
+      class="page"
+      id="categoriesPage"
+      data-page-section="categories"
+    >
+
+      <div class="page-header">
+
+        <span class="eyebrow">
+          EXPLORE BY WORLD
+    

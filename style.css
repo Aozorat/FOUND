@@ -1,0 +1,753 @@
+/* =========================================================
+   FOUND. — STYLE.CSS
+   2000s STREET EDITORIAL
+========================================================= */
+
+:root {
+  --bg: #f2f0ea;
+  --surface: #ffffff;
+  --text: #111111;
+  --muted: #777777;
+  --line: #d6d3cb;
+  --accent: #ff3b16;
+  --black: #0b0b0b;
+  --soft: #e8e5dd;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  border: 0;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+
+/* =========================================================
+   GRAIN
+========================================================= */
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.035;
+
+  background-image:
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 74px;
+
+  padding: 0 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border-bottom: 1px solid var(--line);
+
+  background: rgba(242, 240, 234, 0.94);
+  backdrop-filter: blur(12px);
+
+  z-index: 500;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: 900;
+  letter-spacing: -2px;
+}
+
+.logo span,
+.footer-logo span {
+  color: var(--accent);
+}
+
+.desktop-nav {
+  display: flex;
+  align-items: center;
+
+  gap: 34px;
+
+  margin-left: auto;
+  margin-right: 40px;
+}
+
+.desktop-nav a,
+.desktop-nav button,
+.login-button {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+
+  transition: opacity 0.2s ease;
+}
+
+.desktop-nav a:hover,
+.desktop-nav button:hover,
+.login-button:hover {
+  opacity: 0.5;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.icon-button {
+  font-size: 25px;
+  line-height: 1;
+}
+
+.login-button {
+  border: 1px solid var(--text);
+  padding: 10px 15px;
+}
+
+.menu-button {
+  display: none;
+  font-size: 23px;
+}
+
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+
+  background: var(--black);
+  color: white;
+
+  z-index: 1000;
+
+  transform: translateX(100%);
+
+  transition:
+    transform 0.45s cubic-bezier(.77, 0, .18, 1);
+}
+
+.mobile-menu.open {
+  transform: translateX(0);
+}
+
+.close-menu {
+  position: absolute;
+
+  top: 25px;
+  right: 28px;
+
+  color: white;
+
+  font-size: 34px;
+}
+
+.mobile-menu-inner {
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding: 40px;
+
+  gap: 20px;
+}
+
+.menu-label {
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #888;
+
+  margin-bottom: 15px;
+}
+
+.mobile-menu-inner a,
+.mobile-menu-inner button {
+  text-align: left;
+
+  color: white;
+
+  font-size: clamp(34px, 10vw, 70px);
+  font-weight: 900;
+
+  letter-spacing: -3px;
+}
+
+
+/* =========================================================
+   OVERLAYS
+========================================================= */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+
+  background: var(--bg);
+
+  z-index: 900;
+
+  display: none;
+
+  align-items: center;
+  justify-content: center;
+}
+
+.overlay.open {
+  display: flex;
+}
+
+.overlay-close {
+  position: absolute;
+
+  top: 25px;
+  right: 30px;
+
+  font-size: 40px;
+
+  z-index: 2;
+}
+
+.search-container,
+.login-container {
+  width: min(800px, calc(100% - 40px));
+}
+
+.search-container h2,
+.login-container h2 {
+  font-size: clamp(65px, 12vw, 150px);
+
+  line-height: 0.8;
+
+  letter-spacing: -8px;
+
+  margin-bottom: 45px;
+}
+
+#searchForm {
+  display: flex;
+
+  border-bottom: 2px solid var(--text);
+}
+
+#searchInput {
+  flex: 1;
+
+  border: 0;
+  outline: 0;
+
+  background: transparent;
+
+  padding: 15px 0;
+
+  font-size: 22px;
+}
+
+#searchForm button {
+  font-size: 30px;
+}
+
+.search-suggestions {
+  margin-top: 35px;
+
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 10px;
+}
+
+.search-suggestions span {
+  width: 100%;
+
+  font-size: 9px;
+
+  letter-spacing: 2px;
+
+  color: var(--muted);
+}
+
+.search-suggestions button {
+  border: 1px solid var(--text);
+
+  padding: 9px 13px;
+
+  font-size: 10px;
+
+  font-weight: 800;
+}
+
+#loginForm {
+  display: flex;
+  flex-direction: column;
+
+  gap: 14px;
+}
+
+#loginForm input {
+  border: 1px solid var(--line);
+
+  background: white;
+
+  padding: 17px;
+
+  outline: none;
+}
+
+.primary-button {
+  background: var(--black);
+
+  color: white;
+
+  padding: 17px 20px;
+
+  font-size: 11px;
+  font-weight: 800;
+
+  letter-spacing: 1px;
+}
+
+.login-note {
+  color: var(--muted);
+
+  font-size: 11px;
+
+  margin-top: 15px;
+}
+
+
+/* =========================================================
+   PAGE SYSTEM
+========================================================= */
+
+main {
+  min-height: 100vh;
+
+  padding-top: 74px;
+}
+
+.page {
+  display: none;
+
+  min-height: calc(100vh - 74px);
+}
+
+.page.active {
+  display: block;
+}
+
+
+/* =========================================================
+   SECTIONS
+========================================================= */
+
+.content-section {
+  padding: 100px 5vw;
+}
+
+.section-heading {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: flex-end;
+
+  margin-bottom: 35px;
+}
+
+.section-heading > div {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 18px;
+}
+
+.section-number {
+  font-size: 10px;
+
+  font-weight: 800;
+
+  color: var(--accent);
+}
+
+.section-heading h2 {
+  font-size: clamp(30px, 5vw, 70px);
+
+  line-height: 0.9;
+
+  letter-spacing: -3px;
+}
+
+.section-note {
+  font-size: 9px;
+
+  color: var(--muted);
+
+  letter-spacing: 1.5px;
+}
+
+.text-button {
+  font-size: 10px;
+
+  font-weight: 800;
+
+  letter-spacing: 1px;
+
+  border-bottom: 1px solid var(--text);
+
+  padding-bottom: 5px;
+}
+
+.eyebrow {
+  display: block;
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  letter-spacing: 2px;
+
+  color: var(--muted);
+
+  margin-bottom: 15px;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+  min-height: calc(100vh - 74px);
+
+  position: relative;
+
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+
+  padding: 70px 7vw;
+
+  background: #e8e5dd;
+}
+
+.hero-content {
+  position: relative;
+
+  z-index: 2;
+
+  max-width: 900px;
+}
+
+.hero-index {
+  display: block;
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  letter-spacing: 2px;
+
+  margin-bottom: 30px;
+}
+
+.hero h1 {
+  font-size: clamp(75px, 13vw, 210px);
+
+  line-height: 0.76;
+
+  letter-spacing: -11px;
+
+  font-weight: 900;
+}
+
+.hero h1 span {
+  color: var(--accent);
+}
+
+.hero p {
+  max-width: 400px;
+
+  margin-top: 45px;
+
+  font-size: 14px;
+
+  line-height: 1.6;
+}
+
+.hero-button {
+  margin-top: 28px;
+
+  background: var(--black);
+
+  color: white;
+
+  padding: 16px 22px;
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  letter-spacing: 1px;
+}
+
+.hero-mark {
+  position: absolute;
+
+  right: -5vw;
+  bottom: -7vw;
+
+  font-size: 25vw;
+
+  font-weight: 900;
+
+  letter-spacing: -2vw;
+
+  transform: rotate(-8deg);
+
+  color: rgba(255,255,255,0.55);
+}
+
+
+/* =========================================================
+   MARQUEE
+========================================================= */
+
+.marquee {
+  overflow: hidden;
+
+  white-space: nowrap;
+
+  background: var(--accent);
+
+  color: white;
+
+  padding: 13px 0;
+}
+
+.marquee-track {
+  width: max-content;
+
+  display: flex;
+
+  gap: 50px;
+
+  animation: marquee 22s linear infinite;
+}
+
+.marquee-track span {
+  font-size: 12px;
+
+  font-weight: 900;
+
+  letter-spacing: 2px;
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+
+/* =========================================================
+   PRODUCT GRID
+========================================================= */
+
+.product-grid {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 18px;
+}
+
+.product-card {
+  position: relative;
+
+  cursor: pointer;
+
+  min-width: 0;
+}
+
+.product-image-wrap {
+  position: relative;
+
+  overflow: hidden;
+
+  background: var(--soft);
+
+  aspect-ratio: 1 / 1.12;
+}
+
+.product-card img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  transition:
+    transform 0.65s cubic-bezier(.2,.8,.2,1),
+    filter 0.4s ease;
+}
+
+.product-card:hover img {
+  transform: scale(1.07);
+
+  filter: contrast(1.05);
+}
+
+.product-index {
+  position: absolute;
+
+  top: 12px;
+  left: 12px;
+
+  z-index: 2;
+
+  background: white;
+
+  padding: 6px 8px;
+
+  font-size: 9px;
+
+  font-weight: 900;
+}
+
+.save-button {
+  position: absolute;
+
+  top: 10px;
+  right: 10px;
+
+  z-index: 3;
+
+  width: 35px;
+  height: 35px;
+
+  border-radius: 50%;
+
+  background: white;
+
+  font-size: 20px;
+
+  transition: transform 0.2s ease;
+}
+
+.save-button:hover {
+  transform: scale(1.1);
+}
+
+.save-button.saved {
+  background: var(--accent);
+
+  color: white;
+}
+
+.product-info {
+  padding: 13px 2px 20px;
+}
+
+.product-category {
+  font-size: 8px;
+
+  color: var(--muted);
+
+  letter-spacing: 1.5px;
+
+  font-weight: 800;
+}
+
+.product-name {
+  margin-top: 5px;
+
+  font-size: 14px;
+
+  font-weight: 800;
+
+  line-height: 1.2;
+}
+
+.product-price {
+  margin-top: 8px;
+
+  font-size: 12px;
+}
+
+
+/* =========================================================
+   EDITORIAL
+========================================================= */
+
+.editorial-section {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  min-height: 650px;
+
+  background: var(--black);
+
+  color: white;
+}
+
+.editorial-copy {
+  padding: 90px 7vw;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+}
+
+.editorial-copy .eyebrow {
+  color: #
